@@ -170,7 +170,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*node_modules*
 
 " Trigger configuration of UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-m>"
+let g:UltiSnipsExpandTrigger="<f5>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
