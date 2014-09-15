@@ -13,13 +13,15 @@ fi
 # Customize to your needs...
 # Custom HOME Path
 PATH=$PATH:$HOME/bin
+# export TERM=screen-256color
 
 autoload -U zsh-mime-setup
 zsh-mime-setup
 
-alias pacman="sudo pacman";
-alias systemctl="sudo systemctl";
+alias pacman="sudo pacman"
+alias systemctl="sudo systemctl"
 alias homegit="git --work-tree=$HOME --git-dir=$HOME/.dotfiles.git"
-alias -s php="vim";
-alias -s html="vim";
-alias -s css="vim";
+alias tmux="tmux -2"
+alias -s php="vim"
+alias -s html="vim"
+alias -s css="vim"

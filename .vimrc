@@ -28,6 +28,8 @@ Plugin 'tComment'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -173,5 +175,10 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Solarized custom options
-set background=light
+set t_Co=256
+let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
+
+" Enable Airline buffers instead of tabs
+let g:airline#extensions#tabline#enabled = 1
