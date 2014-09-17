@@ -28,9 +28,12 @@ Plugin 'tComment'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'bling/vim-airline'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Powerline
+set rtp+=~/.powerline/powerline/bindings/vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

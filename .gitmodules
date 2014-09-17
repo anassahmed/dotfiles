@@ -1,3 +1,6 @@
 [submodule "/home/anass/.zprezto"]
 	path = /home/anass/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule ".powerline"]
+	path = .powerline
+	url = https://github.com/Lokaltog/powerline.git

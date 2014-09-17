@@ -13,7 +13,8 @@ fi
 # Customize to your needs...
 # Custom HOME Path
 PATH=$PATH:$HOME/bin
-# export TERM=screen-256color
+
+. "${ZDOTDIR:-$HOME}/.powerline/powerline/bindings/zsh/powerline.zsh"
 
 autoload -U zsh-mime-setup
 zsh-mime-setup
