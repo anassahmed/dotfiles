@@ -25,3 +25,12 @@
 [submodule ".local/share/gnome-shell/extensions/gs-extensions-drop-down-terminal"]
 	path = .local/share/gnome-shell/extensions/gs-extensions-drop-down-terminal
 	url = https://github.com/zzrough/gs-extensions-drop-down-terminal.git
+[submodule ".local/share/gnome-shell/extensions/pomodoro"]
+	path = .local/share/gnome-shell/extensions/pomodoro
+	url = https://github.com/codito/gnome-shell-pomodoro.git
+[submodule "Apps/hamster"]
+	path = Apps/hamster
+	url = https://github.com/projecthamster/hamster.git
+[submodule ".local/share/gnome-shell/extensions/gTile@vibou"]
+	path = .local/share/gnome-shell/extensions/gTile@vibou
+	url = https://github.com/vibou/vibou.gTile

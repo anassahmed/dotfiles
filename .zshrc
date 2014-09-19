@@ -12,7 +12,7 @@ fi
 
 # Customize to your needs...
 # Custom HOME Path
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:$HOME/.gem/ruby/2.1.0/bin
 
 . "${ZDOTDIR:-$HOME}/.powerline/powerline/bindings/zsh/powerline.zsh"
 
