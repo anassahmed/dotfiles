@@ -35,7 +35,7 @@
 	path = .local/share/gnome-shell/extensions/gTile@vibou
 	url = https://github.com/vibou/vibou.gTile
 [submodule "Apps/todo.txt-cli"]
-	path = /home/anass/Apps/todo.txt-cli
+	path = Apps/todo.txt-cli
 	url = https://github.com/ginatrapani/todo.txt-cli.git
 [submodule ".local/share/gnome-shell/extensions/mediaplayer"]
 	path = .local/share/gnome-shell/extensions/mediaplayer
