@@ -4,9 +4,6 @@
 [submodule ".powerline"]
 	path = .powerline
 	url = https://github.com/Lokaltog/powerline.git
-[submodule ".local/share/gnome-shell/extensions/hamster@projecthamster.wordpress.com"]
-	path = .local/share/gnome-shell/extensions/hamster@projecthamster.wordpress.com
-	url = https://github.com/projecthamster/shell-extension.git
 [submodule ".local/share/gnome-shell/extensions/caffeine"]
 	path = .local/share/gnome-shell/extensions/caffeine
 	url = https://github.com/eonpatapon/gnome-shell-extension-caffeine.git
@@ -28,9 +25,6 @@
 [submodule ".local/share/gnome-shell/extensions/pomodoro"]
 	path = .local/share/gnome-shell/extensions/pomodoro
 	url = https://github.com/codito/gnome-shell-pomodoro.git
-[submodule "Apps/hamster"]
-	path = Apps/hamster
-	url = https://github.com/projecthamster/hamster.git
 [submodule ".local/share/gnome-shell/extensions/gTile@vibou"]
 	path = .local/share/gnome-shell/extensions/gTile@vibou
 	url = https://github.com/vibou/vibou.gTile
