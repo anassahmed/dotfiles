@@ -34,3 +34,15 @@
 [submodule ".local/share/gnome-shell/extensions/mediaplayer"]
 	path = .local/share/gnome-shell/extensions/mediaplayer
 	url = https://github.com/eonpatapon/gnome-shell-extensions-mediaplayer.git
+[submodule ".themes/Vertex-theme"]
+	path = .themes/Vertex-theme
+	url = https://github.com/horst3180/Vertex-theme.git
+[submodule ".themes/Numix"]
+	path = .themes/Numix
+	url = https://github.com/shimmerproject/Numix.git
+[submodule ".icons/numix-icon-theme"]
+	path = .icons/numix-icon-theme
+	url = https://github.com/numixproject/numix-icon-theme.git
+[submodule ".icons/numix-icon-theme-circle"]
+	path = .icons/numix-icon-theme-circle
+	url = https://github.com/numixproject/numix-icon-theme-circle.git
