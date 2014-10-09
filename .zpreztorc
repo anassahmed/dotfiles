@@ -40,8 +40,8 @@ zstyle ':prezto:load' pmodule \
   'rsync' \
   'ruby' \
   'ssh' \
-  'syntax-highlighting' \
   'tmux' \
+  'syntax-highlighting' \
   'completion' \
   'prompt'
 
@@ -132,14 +132,14 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
-  'cursor' \
   'root'
+  # 'cursor' \
 #
 # Set syntax highlighting styles.
 zstyle ':prezto:module:syntax-highlighting' styles \
-  'builtin' 'bg=blue' \
-  'command' 'bg=blue' \
-  'function' 'bg=blue'
+   'builtin' 'bg=white' \
+   'command' 'bg=white' \
+   'function' 'bg=white'
 
 #
 # Terminal
@@ -159,7 +159,7 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-#zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'

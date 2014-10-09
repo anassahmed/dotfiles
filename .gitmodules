@@ -16,9 +16,6 @@
 [submodule ".local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"]
 	path = .local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
 	url = https://github.com/micheleg/dash-to-dock.git
-[submodule ".local/share/gnome-shell/extensions/gnome-shell-extension-calc"]
-	path = .local/share/gnome-shell/extensions/gnome-shell-extension-calc
-	url = git://github.com/eonpatapon/gnome-shell-extension-calc.git
 [submodule ".local/share/gnome-shell/extensions/gs-extensions-drop-down-terminal"]
 	path = .local/share/gnome-shell/extensions/gs-extensions-drop-down-terminal
 	url = https://github.com/zzrough/gs-extensions-drop-down-terminal.git
@@ -46,3 +43,6 @@
 [submodule ".icons/numix-icon-theme-circle"]
 	path = .icons/numix-icon-theme-circle
 	url = https://github.com/numixproject/numix-icon-theme-circle.git
+[submodule ".icons/flattr-icons"]
+	path = .icons/flattr-icons
+	url = https://github.com/NitruxSA/flattr-icons.git

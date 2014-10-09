@@ -31,6 +31,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Plugin 'bling/vim-airline'
 " Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'michalliu/sourcebeautify.vim'
 
 " Powerline
 set rtp+=~/.powerline/powerline/bindings/vim
@@ -56,7 +57,7 @@ set mouse=a
 
 " Enable Clipboard
 " you should use +clipboard or +xterm_clipboard enabled VIM (GVIM for example).
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Reselect visual block after indent/outdent 
 vnoremap < <gv
@@ -186,3 +187,5 @@ colorscheme solarized
 
 " Enable Airline buffers instead of tabs
 let g:airline#extensions#tabline#enabled = 1
+
+au BufRead,BufNewFile *.json setf json
