@@ -14,7 +14,7 @@ fi
 # Custom HOME Path
 PATH=$PATH:$HOME/bin:$HOME/.gem/ruby/2.1.0/bin
 
-. "${ZDOTDIR:-$HOME}/.powerline/powerline/bindings/zsh/powerline.zsh"
+# . "${ZDOTDIR:-$HOME}/.powerline/powerline/bindings/zsh/powerline.zsh"
 
 autoload -U zsh-mime-setup
 zsh-mime-setup
