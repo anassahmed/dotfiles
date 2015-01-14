@@ -30,6 +30,11 @@ $HOMEGIT submodules update --init --recursive
 # Install VIM Plugins
 vim +PluginInstall +qall
 
+# Compile VIM YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh
+cd ~
+
 # Change shell ot ZSH
 chsh -s /bin/zsh
 
