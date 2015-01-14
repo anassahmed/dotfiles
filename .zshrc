@@ -20,6 +20,8 @@ autoload -U zsh-mime-setup
 zsh-mime-setup
 
 alias pacman="sudo pacman"
+alias yum="sudo yum"
+alias apt="sudo apt-get"
 alias systemctl="sudo systemctl"
 alias homegit="git --work-tree=$HOME --git-dir=$HOME/.dotfiles.git"
 alias tmux="tmux -2"
