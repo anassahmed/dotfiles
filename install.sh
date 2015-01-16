@@ -2,6 +2,30 @@
 
 echo "Welcome to Anass dotFiles Initialization"
 
+DEBENDENCIES="git vim zsh cmake ctags"
+DEB_DEBENDENCIES="python-dev"
+RED_DEBENDENCIES="python-devel"
+
+echo "Installing Debendencies..."
+if [ -f /etc/lsb-release ]; then
+    OS=`lsb_release -si`
+    if [ "$OS" == "Arch" ]; then
+        pacman -S $DEBENDENCIES
+    elif [ "$OS" == "Fedora" ]; then
+        sudo yum install $DEBENDENCIES $RED_DEBENDENCIES
+    elif [ "$OS" == "Ubuntu" ]; then
+        sudo apt-get install $DEBENDENCIES $DEB_DEBENDENCIES
+    fi
+elif [ -f /etc/debian_version ]; then
+    sudo apt-get install $DEBENDENCIES $DEB_DEBENDENCIES
+elif [ -f /etc/redhat-release ]; then
+    sudo yum install $DEBENDENCIES $RED_DEBENDENCIES
+else
+    echo "Failed to detect your distro."
+    echo "Please Install these dependencies: $DEBENDENCIES $DEB_DEBENDENCIES"
+    exit
+fi
+
 # Git Repo of our Dot Files
 GIT_REPO="https://github.com/anassahmed/dotfiles.git"
 
