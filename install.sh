@@ -6,7 +6,7 @@ echo "Welcome to Anass dotFiles Initialization"
 GIT_REPO="git@github.com:anassahmed/dotfiles.git"
 
 # Home Git command to download to the home directory
-HOMEGIT=`git --work-tree=~/ --git-dir=~/.dotfiles.git`
+HOMEGIT="git --work-tree=~/ --git-dir=~/.dotfiles.git"
 
 GIT_V=`git --version`
 if [ $? -ne 0 ]
@@ -16,16 +16,16 @@ then
 fi
 
 # Initialize Git repo in the home directory
-$HOMEGIT init
+`$HOMEGIT` init
 
 # Add our repo
-$HOMEGIT remote add origin $GIT_REPO
+`$HOMEGIT` remote add origin $GIT_REPO
 
 # Pull the contents
-$HOMEGIT pull -u origin master
+`$HOMEGIT` pull -u origin master
 
 # Pull the submodules
-$HOMEGIT submodules update --init --recursive
+`$HOMEGIT` submodules update --init --recursive
 
 # Install VIM Plugins
 vim +PluginInstall +qall
