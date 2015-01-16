@@ -3,7 +3,7 @@
 echo "Welcome to Anass dotFiles Initialization"
 
 # Git Repo of our Dot Files
-GIT_REPO="git@github.com:anassahmed/dotfiles.git"
+GIT_REPO="https://github.com/anassahmed/dotfiles.git"
 
 # Home Git command to download to the home directory
 HOMEGIT="git --work-tree=$HOME --git-dir=$HOME/.dotfiles.git"
@@ -25,7 +25,7 @@ $HOMEGIT remote add origin $GIT_REPO
 $HOMEGIT pull -u origin master
 
 # Pull the submodules
-$HOMEGIT submodules update --init --recursive
+$HOMEGIT submodule update --init --recursive
 
 # Install VIM Plugins
 vim +PluginInstall +qall
@@ -33,7 +33,7 @@ vim +PluginInstall +qall
 # Compile VIM YouCompleteMe
 cd $HOME/.vim/bundle/YouCompleteMe
 ./install.sh
-cd ~
+cd $HOME
 
 # Change shell ot ZSH
 chsh -s /bin/zsh
