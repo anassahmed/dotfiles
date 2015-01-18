@@ -10,16 +10,16 @@ echo "Installing Debendencies..."
 if [ -f /etc/lsb-release ]; then
     OS=`lsb_release -si`
     if [ "$OS" == "Arch" ]; then
-        pacman -S $DEBENDENCIES
+        yes | sudo pacman -S $DEBENDENCIES
     elif [ "$OS" == "Fedora" ]; then
-        sudo yum install $DEBENDENCIES $RED_DEBENDENCIES
+        sudo yum install -y $DEBENDENCIES $RED_DEBENDENCIES
     elif [ "$OS" == "Ubuntu" ]; then
-        sudo apt-get install $DEBENDENCIES $DEB_DEBENDENCIES
+        sudo apt-get install -y $DEBENDENCIES $DEB_DEBENDENCIES
     fi
 elif [ -f /etc/debian_version ]; then
-    sudo apt-get install $DEBENDENCIES $DEB_DEBENDENCIES
+    sudo apt-get install -y $DEBENDENCIES $DEB_DEBENDENCIES
 elif [ -f /etc/redhat-release ]; then
-    sudo yum install $DEBENDENCIES $RED_DEBENDENCIES
+    sudo yum install -y $DEBENDENCIES $RED_DEBENDENCIES
 else
     echo "Failed to detect your distro."
     echo "Please Install these dependencies: $DEBENDENCIES $DEB_DEBENDENCIES"
