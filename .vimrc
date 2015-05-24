@@ -28,10 +28,17 @@ Plugin 'tComment'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
-" Plugin 'bling/vim-airline'
-" Plugin 'edkolev/tmuxline.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'michalliu/sourcebeautify.vim'
+" Plugin 'klen/python-mode'
+Plugin 'vim-scripts/Efficient-python-folding'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'joonty/vim-phpqa.git'
+Plugin 'StanAngeloff/php.vim'
+" Plugin 'effkay/argonaut.vim'
 
 " Powerline
 set rtp+=~/.powerline/powerline/bindings/vim
@@ -73,7 +80,35 @@ nnoremap <C-l> <C-w>l
 cmap w!! %!sudo tee > /dev/null %
 
 " automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
+au BufWritePost .vimrc source ~/.vimrc
+
+" Remap <leader> key
+let mapleader = ","
+
+" Quicksave command
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <C-C>:update<CR>
+inoremap <C-Z> <C-O>:update<CR>
+
+" Quick quit command
+noremap <Leader>e   :quit<CR> " Quit current window
+noremap <Leader>E   :qa<CR>   " Quit all windows
+
+" Quick Tab Moviing
+map <Leader>n   <esc>:tabprevious<CR>
+map <Leader>m   <esc>:tabnext<CR>
+
+" map sort function to a key
+vnoremap <Leader>s  :sort<CR>
+
+" Show whitespace
+" MUST be inserted before the colorescheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Undo History
+set history=700
+set undolevels=700
 
 " Undo works after restarting vim
 if exists("+undofile")
@@ -112,12 +147,13 @@ filetype plugin indent on
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set shiftround
 set smarttab
 set expandtab
 set smartindent
 
 " Set default text width in screen then take a new line
-set textwidth=120
+set textwidth=119
 
 " View the line number, column number and relative position as percentage
 " In the right side of status line
@@ -129,7 +165,7 @@ set ruler
 " Scroll through terminal lines faster
 set ttyfast
 
-" Automatically re-read the file if it's changed outside VIM 
+" Automatically re-read the file if it's changed outside VIM
 set autoread
 
 " more-like listing per page
@@ -143,6 +179,10 @@ set hlsearch
 
 " Makes search act like search in modern browsers
 set incsearch
+
+" Make Search ignore case-sensitive and smart
+set ignorecase
+set smartcase
 
 " For regular expressions turn magic on
 set magic
@@ -173,6 +213,22 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*node_modules*
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+set wildignore+=*.pyc,*.pyo
+
+" Detect JSON
+au BufRead,BufNewFile *.json setf json
+
+" ======================================
+" Third Party Plugins Settings
+" ======================================
+
+" YouCompleteMe Settings
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<CR>']
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 
 " Trigger configuration of UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<f5>"
@@ -184,8 +240,57 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+" colorscheme argonaut
 
-" Enable Airline buffers instead of tabs
-let g:airline#extensions#tabline#enabled = 1
+" Syntastic Recommended Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checker_args = '--max-line-length=119'
+" let g:syntastic_python_checkers = ['pep8', 'pylint', 'python']
+" PYTHON 3 PATH - Switch when you work on it
+" let g:syntastic_python_python_exec = '/usr/bin/python3'
 
-au BufRead,BufNewFile *.json setf json
+" ================================================
+" Python Specific Plugin Settings
+" ================================================
+
+" Pyhton Mode Settings
+" map <Leader>g   :call RopoGotoDefinition()<CR>
+" let ropevim_enable_shortcuts = 1
+" let g:pymode_rope_goto_def_newein = "vnew"
+" let g:pymode_rope_extended_complete = 1
+" let g:pymode_breakpoint = 0
+" let g:pymode_syntax = 1
+" let g:pymode_syntax_builtin_objs = 0
+" let g:pymode_syntax_builtin_funcs = 0
+" let g:pymode_virtualenv = 1
+" let g:pymode_motion = 1
+" map <Leader>b   Oimport ipdb; ipdb.set_trace() #BREAKPOINT<C-c>
+
+" Virtualenv Integration
+if has("python") && !empty($VIRTUAL_ENV)
+    python << EOF
+import os
+import sys
+a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
+execfile(a, dict(__file__ = a))
+if 'PYTHONPATH' not in os.environ:
+    os.environ['PYTHONPATH'] = ''
+    os.environ['PYTHONPATH'] += ":"+os.getcwd()
+    os.environ['PYTHONPATH'] += ":".join(sys.path)
+EOF
+endif
+
+" Settings for jedi-vim
+let g:jedi#usages_command = "<leader>z"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+" Python Folding
+set nofoldenable

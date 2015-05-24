@@ -2,7 +2,7 @@
 
 echo "Welcome to Anass dotFiles Initialization"
 
-DEBENDENCIES="git vim zsh cmake ctags"
+DEBENDENCIES="git vim zsh gcc-cc++ cmake ctags"
 DEB_DEBENDENCIES="python-dev"
 RED_DEBENDENCIES="python-devel"
 
