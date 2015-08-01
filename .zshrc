@@ -43,3 +43,8 @@ alias c="clear"
 alias -s php="vim"
 alias -s html="vim"
 alias -s css="vim"
+
+function moon() {
+    tarihi1=`date +%Y%m%d`;
+    gcal -f/dev/null -"#0*d1#999_%Z__%O" %$tarihi1 -x --moon=8
+}

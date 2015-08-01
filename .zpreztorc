@@ -35,6 +35,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'history-substring-search' \
   'pacman' \
+  'yum' \
+  'dnf' \
   'python' \
   'rails' \
   'rsync' \
