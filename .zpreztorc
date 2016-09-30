@@ -30,10 +30,10 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'directory' \
+  'archive' \
   'spectrum' \
   'utility' \
   'git' \
-  'history-substring-search' \
   'pacman' \
   'yum' \
   'dnf' \
@@ -44,7 +44,9 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'tmux' \
   'syntax-highlighting' \
+  'history-substring-search' \
   'completion' \
+  'fasd' \
   'prompt'
 
 #
@@ -98,7 +100,7 @@ zstyle ':prezto:module:pacman' frontend 'yaourt'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'skwp'
+zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 
 #
 # Ruby

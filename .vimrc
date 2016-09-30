@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-eunuch'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree.git'
@@ -38,6 +39,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'joonty/vim-phpqa.git'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 " Plugin 'effkay/argonaut.vim'
 
 " Powerline
@@ -125,16 +127,6 @@ if exists("+undofile")
 	set undofile
 endif
 
-" Turn off arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 " Set Numbers
 set number
 
@@ -153,7 +145,7 @@ set expandtab
 set smartindent
 
 " Set default text width in screen then take a new line
-set textwidth=119
+set textwidth=80
 
 " View the line number, column number and relative position as percentage
 " In the right side of status line
@@ -228,12 +220,14 @@ au BufRead,BufNewFile *.json setf json
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<CR>']
 let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 
 
 " Trigger configuration of UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<f5>"
+let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Solarized custom options
 set t_Co=256
