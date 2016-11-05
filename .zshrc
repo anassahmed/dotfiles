@@ -42,11 +42,12 @@ export VISUAL=$EDITOR
 alias pacman="sudo pacman"
 alias yum="sudo dnf"
 alias dnf="sudo dnf"
-alias apt="sudo apt-get"
+alias apt="sudo apt"
 alias systemctl="sudo systemctl"
 alias homegit="git --work-tree=$HOME --git-dir=$HOME/.dotfiles.git"
 alias tmux="tmux -2"
 alias vim="gvim -v"
+alias odoo="/home/anass/Documents/workspace/odoo/odoo8/odoo.py"
 alias c="clear"
 alias -s php="vim"
 alias -s html="vim"
@@ -57,10 +58,33 @@ function moon() {
     gcal -f/dev/null -"#0*d1#999_%Z__%O" %$tarihi1 -x --moon=8
 }
 
+POWERLEVEL9K_INSTALLATION_PATH=~/.powerlevel9k/
+source ~/.powerlevel9k/powerlevel9k.zsh-theme
+
 POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs background_jobs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram todo)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_RAM_ELEMENTS="ram_free"
+# Colors
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="240"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="240"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="240"
+POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
+POWERLEVEL9K_VIRTUALENV_BACKGROUND="245"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND="white"
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND="034"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="white"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="124"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="white"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="214"
+POWERLEVEL9K_STATUS_OK_FOREGROUND="white"
+POWERLEVEL9K_STATUS_OK_BACKGROUND="078"
+POWERLEVEL9K_RAM_FOREGROUND="white"
+POWERLEVEL9K_RAM_BACKGROUND="208"
