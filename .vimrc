@@ -29,7 +29,8 @@ Plugin 'tComment'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'michalliu/sourcebeautify.vim'
@@ -40,10 +41,6 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'joonty/vim-phpqa.git'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'ekalinin/Dockerfile.vim'
-" Plugin 'effkay/argonaut.vim'
-
-" Powerline
-set rtp+=~/.powerline/powerline/bindings/vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,6 +58,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Anass Modifications <anass.1430@gmail.com>
+
+" Airline font symboles
+let g:airline_powerline_fonts = 1
+
 " Enable mouse in VIM
 set mouse=a
 
@@ -145,7 +146,7 @@ set expandtab
 set smartindent
 
 " Set default text width in screen then take a new line
-set textwidth=80
+set textwidth=79
 
 " View the line number, column number and relative position as percentage
 " In the right side of status line
@@ -232,9 +233,9 @@ let g:UltiSnipsEditSplit="vertical"
 " Solarized custom options
 set t_Co=256
 let g:solarized_termcolors=256
-set background=dark
+let g:solarized_termtrans=1
+set background=light
 colorscheme solarized
-" colorscheme argonaut
 
 " Syntastic Recommended Settings
 set statusline+=%#warningmsg#
@@ -244,7 +245,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checker_args = '--max-line-length=119'
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checker_args = '--max-line-length=79'
 " let g:syntastic_python_checkers = ['pep8', 'pylint', 'python']
 " PYTHON 3 PATH - Switch when you work on it
 " let g:syntastic_python_python_exec = '/usr/bin/python3'
@@ -277,6 +279,17 @@ if 'PYTHONPATH' not in os.environ:
     os.environ['PYTHONPATH'] = ''
     os.environ['PYTHONPATH'] += os.getcwd()+":"
     os.environ['PYTHONPATH'] += ":".join(sys.path)
+EOF
+endif
+
+" Odoo Integration
+if has("python") && !empty($OPENERP_SERVER)
+    python <<EOF
+try:
+    import openerp
+    openerp.tools.config.parse_config()
+except ImportError:
+    pass
 EOF
 endif
 
