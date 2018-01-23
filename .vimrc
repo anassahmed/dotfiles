@@ -19,7 +19,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
@@ -145,6 +145,12 @@ set smarttab
 set expandtab
 set smartindent
 
+" Set tab width for Python, PHP, JS, and YML files
+" au BufNewFile,BufRead *.py, *.php, *.js*, *.yml
+"             \ set tabstop=4
+"             \ set softtabstop=4
+"             \ set shiftwidth=4
+
 " Set default text width in screen then take a new line
 set textwidth=79
 
@@ -234,20 +240,21 @@ let g:UltiSnipsEditSplit="vertical"
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-set background=light
+set background=dark
 colorscheme solarized
 
 " Syntastic Recommended Settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checker_args = '--max-line-length=79'
-" let g:syntastic_python_checkers = ['pep8', 'pylint', 'python']
+" let g:syntastic_python_checkers = ['python', 'flake8', 'pep8', 'pylint']
 " PYTHON 3 PATH - Switch when you work on it
 " let g:syntastic_python_python_exec = '/usr/bin/python3'
 
@@ -297,7 +304,8 @@ endif
 let g:jedi#usages_command = "<leader>z"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>i Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " Python Folding
 set nofoldenable
