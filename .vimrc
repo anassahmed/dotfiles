@@ -240,7 +240,7 @@ let g:UltiSnipsEditSplit="vertical"
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-set background=dark
+set background=light
 colorscheme solarized
 
 " Syntastic Recommended Settings
@@ -276,18 +276,18 @@ let g:syntastic_python_checker_args = '--max-line-length=79'
 " map <Leader>b   Oimport ipdb; ipdb.set_trace() #BREAKPOINT<C-c>
 
 " Virtualenv Integration
-if has("python") && !empty($VIRTUAL_ENV)
-    python << EOF
-import os
-import sys
-a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
-execfile(a, dict(__file__ = a))
-if 'PYTHONPATH' not in os.environ:
-    os.environ['PYTHONPATH'] = ''
-    os.environ['PYTHONPATH'] += os.getcwd()+":"
-    os.environ['PYTHONPATH'] += ":".join(sys.path)
-EOF
-endif
+" if has("python") && !empty($VIRTUAL_ENV)
+"     python << EOF
+" import os
+" import sys
+" a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
+" execfile(a, dict(__file__ = a))
+" if 'PYTHONPATH' not in os.environ:
+"     os.environ['PYTHONPATH'] = ''
+"     os.environ['PYTHONPATH'] += os.getcwd()+":"
+"     os.environ['PYTHONPATH'] += ":".join(sys.path)
+" EOF
+" endif
 
 " Odoo Integration
 if has("python") && !empty($OPENERP_SERVER)
