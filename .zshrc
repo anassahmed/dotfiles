@@ -48,10 +48,24 @@ alias homegit="git --work-tree=$HOME --git-dir=$HOME/.dotfiles.git"
 alias tmux="tmux -2"
 alias vim="gvim -v"
 alias odoo="/home/anass/Documents/workspace/odoo/odoo8/odoo.py"
+alias odoo-bin="/home/anass/Documents/workspace/odoo/odoo10/odoo-bin"
 alias c="clear"
 alias -s php="vim"
 alias -s html="vim"
 alias -s css="vim"
+
+# docker-compose aliases
+alias dc="docker-compose"
+alias dcu="docker-compose up -d"
+alias dcub="docker-compose up --build -d"
+alias dcp="docker-compose ps"
+alias dce="docker-compose exec"
+alias dcr="docker-compose run"
+alias dcrr="docker-compose run --rm"
+alias dcl="docker-compose logs --tail 50"
+alias dclf="docker-compose logs --tail 50 -f"
+alias dcd="docker-compose down"
+alias dcdv="docker-compose down -v --remove-orphans --rmi local"
 
 function moon() {
     tarihi1=`date +%Y%m%d`;
