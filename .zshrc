@@ -4,7 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-if [[ $TERMINIX_ID ]]; then
+if [[ $TILIX_ID ]]; then
         source /etc/profile.d/vte.sh
 fi
 
