@@ -4,9 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-if [[ $TILIX_ID ]]; then
-        source /etc/profile.d/vte.sh
-fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -71,9 +68,6 @@ function moon() {
     tarihi1=`date +%Y%m%d`;
     gcal -f/dev/null -"#0*d1#999_%Z__%O" %$tarihi1 -x --moon=8
 }
-
-POWERLEVEL9K_INSTALLATION_PATH=~/.powerlevel9k/
-source ~/.powerlevel9k/powerlevel9k.zsh-theme
 
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_COLOR_SCHEME='light'

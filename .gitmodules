@@ -7,6 +7,3 @@
 [submodule ".git-flow-completion"]
 	path = .git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion
-[submodule ".powerlevel9k"]
-	path = .powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
