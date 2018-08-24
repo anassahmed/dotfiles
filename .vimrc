@@ -240,7 +240,7 @@ let g:UltiSnipsEditSplit="vertical"
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-set background=light
+set background=dark
 colorscheme solarized
 
 " Syntastic Recommended Settings
