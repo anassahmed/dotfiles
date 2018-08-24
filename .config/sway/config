@@ -232,6 +232,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Swaylock
-bindsym $mod+l exec swaylock -i /usr/share/backgrounds/f28/default/normalish/f28.png --scaling fill
+bindsym $mod+m exec swaylock -i /usr/share/backgrounds/f28/default/normalish/f28.png --scaling fill
 
 include /etc/sway/config.d/*
