@@ -19,7 +19,7 @@ PATH=$PATH:$HOME/.bin:$HOME/.gem/ruby/2.1.0/bin:$GEM_HOME/bin
 
 export WORKON_HOME="$HOME/.virtualenvs"
 source /usr/bin/virtualenvwrapper.sh
-source /usr/local/rvm/scripts/rvm
+# source /usr/local/rvm/scripts/rvm
 
 DEFAULT_USER=anass
 
