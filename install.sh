@@ -46,7 +46,7 @@ $HOMEGIT init
 $HOMEGIT remote add origin $GIT_REPO
 
 # Pull the contents
-$HOMEGIT pull -u origin master
+$HOMEGIT pull origin master
 
 # Pull the submodules
 $HOMEGIT submodule update --init --recursive
