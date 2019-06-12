@@ -227,7 +227,7 @@ au BufRead,BufNewFile *.json setf json
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<CR>']
 let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 
 
 " Trigger configuration of UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -256,7 +256,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checker_args = '--max-line-length=79'
 " let g:syntastic_python_checkers = ['python', 'flake8', 'pep8', 'pylint']
 " PYTHON 3 PATH - Switch when you work on it
-" let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_python_exec = '/home/anass/.virtualenvs/odoo11/bin/python3'
 
 " ================================================
 " Python Specific Plugin Settings
