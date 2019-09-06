@@ -1,0 +1,14 @@
+# -- Odoo Snippets --
+snippet model "Odoo Model Class" b
+class $1(models.Model):
+	"""${2:$1} Model"""
+	${3:_name = '$4'}${5:
+	_inherit = '$6'}
+
+	# fields
+	$7
+endsnippet
+
+snippet field "Odoo Field Property" b
+$1 = fields.${2:}(${3:"string"})
+endsnippet

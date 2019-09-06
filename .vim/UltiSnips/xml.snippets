@@ -1,0 +1,208 @@
+snippet openerp "OpenERP XML file definition" b
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		$1
+	</data>
+</openerp>
+endsnippet
+
+snippet odoo "Odoo 10 XML file definition" b
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		$1
+	</data>
+</odoo>
+endsnippet
+
+snippet record "OpenERP XML record definition" b
+<record id="$1" model="${2:model}">
+	<field name="${3:name}">${4:`!p snip.rv = t[1].replace('_', ' ').capitalize()`}</field>
+	<field name="${5:model}">${6}</field>${7:
+	<field name="inherit_id" ref="$8"/>}
+	<field name="${9:key}">${10:value}</field>
+</record>
+endsnippet
+
+snippet recordv "OpenERP XML record view definition" b
+<record id="$1" model="ir.ui.view">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', '.')`}</field>
+	<field name="model">$3</field>${4:
+	<field name="inherit_id" ref="$5"/>}
+	<field name="arch" type="xml">
+		$6
+	</field>
+</record>
+endsnippet
+
+snippet recordw "OpenERP XML record workflow definition" b
+<record id="$1" model="workflow">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', ' ').replace('wkf ', '').capitalize()`}</field>
+	<field name="osv">$3</field>${4:
+	<field name="on_create">${5:True}</field>}
+</record>
+endsnippet
+
+snippet recordwa "OpenERP XML record workflow activity difinition" b
+<record id="$1" model="workflow.activity">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', ' ').capitalize()`}</field>
+	<field name="wkf_id">${3:wkf_id}</field>${4:
+	<field name="${5:flow_start}" eval="True"/>}
+	<field name="kind">${6:function}</field>
+	<field name="action">${7:action_func}</field>${8:
+	<field name="action_id" ref="$9"/>}
+</record>
+endsnippet
+
+snippet recordwt "OpenERP XML record workflow transition difinition" b
+<record id="$1" model="workflow.transition">
+	<field name="act_from" ref="$2"/>
+	<field name="act_to" ref="$3"/>
+	<field name="signal">$4</field>
+</record>
+endsnippet
+
+snippet field "OpenERP XML field tag" !b
+<field name="${1:name}"${2: string="$3"}>$4</field>
+endsnippet
+
+snippet fieldc "OpenERP XML field closed tag" b
+<field name="${1:name}"${2: string="$3"}/>
+endsnippet
+
+snippet rule "OpenERP Security Record Rule" b
+<record id="$1" model="ir.rule">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', ' ').capitalize()`}</field>
+	<field name="model_id" ref="$3"/>
+	<field name="groups" eval="[(4, ref('$4'))${5:, }]"/>
+	<field name="perm_read" eval="${6:1}"/>
+	<field name="perm_write" eval="${7:1}"/>
+	<field name="perm_create" eval="${8:1}"/>
+	<field name="perm_unlink" eval="${9:1}"/>
+	<field name="domain_force">${10:[(1, '=', 1)]}</field>
+</record>
+endsnippet
+
+snippet recordact "OpenERP XML record action window" b
+<record id="$1" model="ir.actions.act_window">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', ' ').title()`}</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">$3</field>
+	<field name="view_type">${4:form}</field>
+	<field name="view_mode">${5:tree,form}</field>${6:
+	<field name="context">$7</field>}${8:
+	<field name="view_id" ref="$9"/>}
+</record>
+endsnippet
+
+snippet menuitem "OpenERP XML menuitem tag" b
+<menuitem id="$1" action="$2"${3: groups="$4"}${5: parent="$6"} sequence="${7:0}"/>
+endsnippet
+
+snippet mailtemplate "OpenERP XML Mail Template" b
+<record id="$1" model="email.template">
+	<field name="name">${2:`!p snip.rv = t[1].replace('_', ' ').capitalize()`}</field>
+	<field name="model_id" ref="model_$3"/>
+	<field name="subject">$4</field>
+	<field name="partner_to">${$5.id}</field>
+	<field name="email_from">${6:${user.company_id.email}}</field>
+	<field name="use_default_to" eval="False"/>
+	<field name="auto_delete" eval="False"/>
+	<field name="body_html">
+		<![CDATA[
+		<html>
+			<body>
+				<p>Dear ${7:Employee},</p>
+				<p>$8.
+				</p>
+			</body>
+		</html>
+		]]>
+	</field>
+</record>
+endsnippet
+
+snippet act_window "OpenERP Multi Action" b
+<act_window id="$1" name="${2:`!p snip.rv = t[1].replace('_', ' ').title()`}"
+	src_model="$3"
+	res_model="$4"
+	view_mode="${5:form}"
+	view_type="${6:form}"
+	view_id="$7"
+	target="${8:new}"
+	key2="${9:client_action_multi}"
+	groups="$10"/>
+endsnippet
+
+snippet report "OpenERP Report" b
+<report
+	id="$1"
+	model="$2"
+	string="$3"
+	report_type="${4:qweb-pdf}"
+	name="$5"
+	file="${6:$5}"
+	attachment_use="${7:False}"${8:
+	attachment="${9:(object.state in ('open','paid')) and
+        ('INV'+(object.number or '').replace('/','')+'.pdf')}"}
+	/>
+endsnippet
+
+snippet report_template "OpenERP Report Template" b
+<template id="$1">
+	<t t-call="report.html_container">
+		<t t-foreach="docs" t-as="o">
+			<t t-call="report.external_layout">
+				<div class="page">
+					$2
+				</div>
+			</t>
+		</t>
+	</t>
+</template>
+endsnippet
+
+snippet report_template_translate "OpenERP Translate Report Template" b
+<template id="$1">
+	<t t-call="report.html_container">
+		<t t-foreach="doc_ids" t-as="doc_id">
+			<t t-raw="translate_doc(doc_id, doc_model, '${2:partner_id.lang}', '${3:sale.report_saleorder_document}')"/>
+		</t>
+	</t>
+</template>
+endsnippet
+
+snippet email_template "OpenERP Email Template" b
+<record id="$1_email_template" model="email.template">
+	<field name="name">$2</field>
+	<field name="model_id" ref="model_$3"/>
+	<field name="subject">${4:${object.name}}</field>
+	<field name="partner_to">${5:${object.env.ref('$6').users.ids|join(',')}}</field>
+	<field name="email_from">${7:${user.company_id.email and user.company_id.email or user.email}}</field>
+	<field name="use_default_to" eval="${8:False}"/>
+	<field name="auto_delete" eval="${9:False}"/>
+	<field name="body_html">
+		<![CDATA[
+			<html>
+				<body>
+				$10
+				</body>
+			</html>
+		]]>
+	</field>
+</record>
+endsnippet
+
+snippet cron "OpenERP Cron Scheduled Task" b
+<record id="ir_cron_$1" model="ir.cron">
+	<field name="name">$2</field>
+	<field name="priority" eval="${3:5}"/>
+	<field name="model">$4</field>
+	<field name="function">$5</field>
+	<field name="interval_number" eval="${6:1}"/>
+	<field name="interval_type">${7:days}</field>
+	<field name="numbercall" eval="${8:-1}"/>${9:
+	<field name="doall" eval="True"/>}
+</record>
+endsnippet
